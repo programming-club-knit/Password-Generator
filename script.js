@@ -46,3 +46,12 @@ copyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(passwordField.value);
     alert("Password Copied!");
 });
+
+document.querySelector("#eye").addEventListener("click",function(e){
+  if(passwordField.type==="password"){
+    passwordField.type="text"
+  }
+  else{
+    passwordField.type="password"
+  }
+});
