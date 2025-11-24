@@ -33,7 +33,7 @@ function generatePassword() {
     }
 
     for (let i = 0; i <= length; i++) {
-        Math.random() * allowedChars.length
+      let randomIndex=Math.floor(  Math.random() * allowedChars.length); ///error resolve
         password += allowedChars[randomIndex];
     }
 
