@@ -10,14 +10,14 @@ const symbolCheck = document.getElementById("symbols");
 const generateBtn = document.getElementById("generateBtn");
 
 function generatePassword() {
-    const length = parseInt(lengthInput.value);
+    const length = parseInt(lengthInput.value)-1;
 
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numbers = "0123456789";
     const symbol = "!@#$%^&*()_+{}[]<>?/";
 
-    let allowedChars = "";
+    let allowedChars =[];
     let password = "";
 
     if (lowerCheck.checked) allowedChars += lowercase;
@@ -33,11 +33,13 @@ function generatePassword() {
     }
 
     for (let i = 0; i <= length; i++) {
-        Math.random() * allowedChars.length
+      const randomIndex=  Math.floor(Math.random() * allowedChars.length)
         password += allowedChars[randomIndex];
+        console.log(randomIndex);
+       
     }
 
-    passwordField.value = password;
+     passwordField.value = password;
 }
 
 generateBtn.addEventListener("click", generatePassword);
