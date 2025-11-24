@@ -10,20 +10,20 @@ const symbolCheck = document.getElementById("symbols");
 const generateBtn = document.getElementById("generateBtn");
 
 function generatePassword() {
-    const length = parseInt(lengthInput.value)-1;
+    const length = parseInt(lengthInput.value);
 
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numbers = "0123456789";
     const symbol = "!@#$%^&*()_+{}[]<>?/";
 
-    let allowedChars =[];
+    let allowedChars ="";
     let password = "";
 
     if (lowerCheck.checked) allowedChars += lowercase;
     if (upperCheck.checked) allowedChars += uppercase;
     if (numberCheck.checked) allowedChars += numbers;
-    if (symbolCheck.checked) allowedChars += symbols;
+    if (symbolCheck.checked) allowedChars += symbol;
     if (!allowedChars) return "";
 
 
@@ -32,7 +32,7 @@ function generatePassword() {
         return;
     }
 
-    for (let i = 0; i <= length; i++) {
+    for (let i = 0; i <= length-1; i++) {
       const randomIndex=  Math.floor(Math.random() * allowedChars.length)
         password += allowedChars[randomIndex];
         console.log(randomIndex);
@@ -47,4 +47,4 @@ generateBtn.addEventListener("click", generatePassword);
 copyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(passwordField.value);
     alert("Password Copied!");
-});
+}); 
